@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pra voces dois seus lindos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --pink: #ff4fa3;
+        --purple: #7b3fff;
+        --black: #0b0b10;
+        --card: rgba(10, 10, 18, 0.6);
+        --card-border: rgba(255, 255, 255, 0.12);
+        --text: #f8eefe;
+        --muted: #c7b7d9;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(1200px 800px at 20% 15%, rgba(255,79,163,0.18), transparent 60%),
+                    radial-gradient(1000px 700px at 80% 85%, rgba(123,63,255,0.18), transparent 60%),
+                    linear-gradient(135deg, var(--black), #1a1023 60%, #120816);
+        display: grid;
+        place-items: center;
+        padding: 32px;
+        overflow-x: hidden;
+      }
+
+      /* Soft animated glow orbs */
+      .orb {
+        position: fixed;
+        width: 44vmin; height: 44vmin;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.35;
+        pointer-events: none;
+        mix-blend-mode: screen;
+        animation: float 18s ease-in-out infinite;
+      }
+      .orb.pink { background: var(--pink); top: -6vmin; left: -6vmin; animation-delay: 0s; }
+      .orb.purple { background: var(--purple); bottom: -8vmin; right: -10vmin; animation-delay: 6s; }
+      @keyframes float { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(2vmin,-2vmin) scale(1.06);} }
+
+      .card {
+        width: min(860px, 92vw);
+        backdrop-filter: blur(12px) saturate(120%);
+        background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+        border: 1px solid var(--card-border);
+        border-radius: 24px;
+        padding: clamp(22px, 3.8vmax, 44px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.03);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ribbon {
+        position: absolute;
+        inset: 0;
+        background: conic-gradient(from 210deg at 50% 50%, rgba(255,79,163,0.25), rgba(123,63,255,0.2), rgba(255,79,163,0.25));
+        mask: radial-gradient(120% 75% at 50% 0%, #000 55%, transparent 65%)
+              radial-gradient(120% 75% at 50% 100%, #000 55%, transparent 65%);
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(28px, 4.5vmax, 54px);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        text-shadow: 0 2px 12px rgba(255,79,163,0.25), 0 4px 24px rgba(123,63,255,0.25);
+      }
+
+      .subtitle {
+        margin: 0 0 26px;
+        font-weight: 400;
+        color: var(--muted);
+      }
+
+      .poem {
+        font-size: clamp(16px, 2.2vmax, 20px);
+        line-height: 1.8;
+        letter-spacing: 0.01em;
+      }
+      .poem .line { display: block; margin: 4px 0; }
+
+      .accent {
+        background: linear-gradient(90deg, var(--pink), var(--purple));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .tag {
+        display: inline-block;
+        margin-top: 18px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border: 1px solid var(--card-border);
+        color: var(--muted);
+      }
+
+      footer { margin-top: 28px; color: var(--muted); font-size: 12px; }
+      a { color: var(--pink); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <div class="orb pink" aria-hidden="true"></div>
+    <div class="orb purple" aria-hidden="true"></div>
+
+    <main class="card" role="main">
+      <div class="ribbon" aria-hidden="true"></div>
+      <h1><span class="accent">Poema ao Homem Incrível</span></h1>
+      <p class="subtitle">cores: <strong>rosa</strong>, <strong>roxo</strong> e <strong>preto</strong></p>
+
+      <section class="poem" aria-label="Poema">
+        <span class="line">Tu és homem e és vasto:</span>
+        <span class="line">guarda-ventos e calmarias no mesmo peito.</span>
+        <span class="line">Teu riso acende cidades,</span>
+        <span class="line">teu passo abre caminho nos dias estreitos.</span>
+        <br>
+        <span class="line">Trazes ombro de abrigo,</span>
+        <span class="line">mãos que aprendem e se estendem.</span>
+        <span class="line">Quando o mundo pesa, tu ergues pontes,</span>
+        <span class="line">quando a noite cai, tu acendes constelações.</span>
+        <br>
+        <span class="line">És gentileza sem ruído,</span>
+        <span class="line">força que não precisa gritar.</span>
+        <span class="line">És sonho que não desiste,</span>
+        <span class="line">firmeza doce de quem sabe amar.</span>
+        <br>
+        <span class="line">Que saibas: és <span class="accent">incrível</span> —</span>
+        <span class="line">não por vencer sempre,</span>
+        <span class="line">mas por seguir inteiro,</span>
+        <span class="line">e fazer do simples o lugar de recomeçar.</span>
+      </section>
+
+      <span class="tag">feito com carinho</span>
+      <footer>para meu amiguinho huhu petter UwU</footer>
+    </main>
+  </body>
+</html>
